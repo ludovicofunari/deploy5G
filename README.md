@@ -22,7 +22,7 @@ kubectl exec -it $POD_GNB -- apt install iputils-ping tcpdump iproute2 -y
 kubectl exec -it $POD_GNB -- ip r a 192.168.252.0/24 via 192.168.251.1
 ```
 
-## Test if UE pings the internet
+## Test if UE pings the internet
 
 ```bash
 export POD_UE=$(kubectl get pods --namespace free5gc -l "component=ue" -o jsonpath="{.items[0].metadata.name}")

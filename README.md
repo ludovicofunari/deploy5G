@@ -17,7 +17,7 @@ helm install ueransim towards5gs-helm/charts/ueransim -f my-ueransim-values.yaml
 
 # Set route to the gnb:
 export POD_GNB=$(kubectl get pods --namespace free5gc -l "component=gnb" -o jsonpath="{.items[0].metadata.name}")
-kubectl exec -it $POD_GNB -- apt update && apt install iputils-ping tcpdump iproute2 -y
+kubectl exec -it $POD_GNB -- apt update
 kubectl exec -it $POD_GNB -- apt install iputils-ping tcpdump iproute2 -y
 kubectl exec -it $POD_GNB -- ip r a 192.168.252.0/24 via 192.168.251.1
 ```
